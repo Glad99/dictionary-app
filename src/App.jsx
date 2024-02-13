@@ -3,36 +3,37 @@ import { useEffect, useState } from 'react';
 import './App.css'
 
 function App() {
-const [data, setData] = useState([])
+const [countries, setCountries] = useState([])
 const [error, setError] = useState(null)
+const [input, setInput] = useState("")
 
   useEffect(()=>{
-    fetch("https://hn.algolia.com/api/v1/search?query=redux")
+    fetch(`https://restcountries.com/v3.1/${input ? `/name/${input}`: "all"}`)
     .then(res => res.json())
-    .then(res => {
-      console.log(res.hits);
-      setData(res.hits)
-    }).catch(err => setError(err))
-  }, [])
-  //useEffect takes in a callback function and dependecies (()=> {},[])..fetch(url).then()converts to json,,res is the respond to request sent..map is always in qurly braces
-  return(
-    <div className="grid grid-cols-4 gap-5">
-      {data.map(item=>(
-        <div className="bg-slate-300 p-5 items-center flex flex-col" key={item.story_id}>
-          <p className="underline">{item.title}</p>
-          <p>{item.author}</p>
-          <a target="-blank" className="bg-blue-400 w-fit px-3 py-1 rounded-md text-white" href={item.url}>click go to book</a>
-          {
-            item._tags.map((tag, index) => (
-              <div key={index}>
-                <p>{tag}</p>
-              </div>
-            ))
-          }
+    .then(res =>{
+      console.log(res);
+      let country = res;
+      setCountries(country)
+    }).catch(err=>setError(err))
+  }, [input])
+  return (
+    <div className="">
+      <input onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search by name" className="placeholder: pl-5  w-80 bg-slate-200 h-10 rounded-xl border-black" />
+      
+      <div className="grid grid-cols-5 items-center gap-8 m-5">
+      {countries.map(item=>(
+        <div className="flex flex-col items-start justify-start" key={item.cca3}>
+          <img src={item.flags.png} alt={`a flag of ${item.name.common}`} />
+          <p>Country: {item.name.official}</p>
+          <p>Capital: {item?.capital}</p>
+          <p>Population: {item.population}</p>
+          <p>{item.independent ? "independent" : "dependent"}</p>
         </div>
-      ))}
+      )
+    )}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App
