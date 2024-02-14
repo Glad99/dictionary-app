@@ -22,7 +22,7 @@ const [input, setInput] = useState("")
       
       <div className="grid grid-cols-5 items-center gap-8 pt-20">
       {countries.map(item=>(
-        <div className="flex flex-col items-start justify-start bg-zinc-200  p-2 rounded-md " key={item.cca3}>
+        <div className="flex flex-col items-start justify-start bg-zinc-200 p-2 rounded-md " key={item.cca3}>
           <img src={item.flags.png} alt={`a flag of ${item.name.common}`} className="h-20 mt-2 w-full " />
           <p className="pt-4">Country: {item.name.official}</p>
           <p>Capital: {item?.capital}</p>
