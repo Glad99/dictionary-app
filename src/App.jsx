@@ -19,7 +19,7 @@ const [input, setInput] = useState("")
   return (
     <div className="">
       <input onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search by name" className="placeholder: pl-5 w-80 bg-slate-200 h-10 rounded-xl border-black" />
-      
+
       <div className="grid grid-cols-5 items-center gap-8 pt-20">
       {countries.map(item=>(
         <div className="flex flex-col items-start justify-start bg-zinc-200 p-2 rounded-md " key={item.cca3}>
