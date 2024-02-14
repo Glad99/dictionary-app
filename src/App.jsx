@@ -18,7 +18,7 @@ const [input, setInput] = useState("")
   }, [input])
   return (
     <div className="">
-      <input onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search by name" className="placeholder: pl-5  w-80 bg-slate-200 h-10 rounded-xl border-black" />
+      <input onChange={(e) => setInput(e.target.value)} type="text" placeholder="Search by name" className="placeholder: pl-5 w-80 bg-slate-200 h-10 rounded-xl border-black" />
       
       <div className="grid grid-cols-5 items-center gap-8 pt-20">
       {countries.map(item=>(
