@@ -1,33 +1,37 @@
+import axios from "axios"
 import { useState } from "react"
 
 
 const Test = () => {
 const [formData, setFormData] = useState({
-    title: undefined,
-    userId: undefined,
-    body: undefined,
+    title: "",
+    userId: "",
+    body: "",
 })
 const handleChange = (e) =>{
     const {name, value} = e.target
     setFormData(prevFormData => ({...prevFormData, [name]: value }))
     console.log(formData);
 }
-const handleSubmit = ()=>{
-    fetch('https://jsonplaceholder.typicode.com/posts', {
-  method: 'POST',
-  body: JSON.stringify({
-    title: 'foo',
-    body: 'bar',
-    userId: 1,
-  }),
-  headers: {
-    'Content-type': 'application/json; charset=UTF-8',
-  },
-})
-  .then((response) => response.json())
-  .then((json) => console.log(json));
-}
+const handleSubmit = (e)=>{
+    e.preventDefault()
+//     fetch('https://jsonplaceholder.typicode.com/posts', {
+//   method: 'POST',
+//   body: JSON.stringify(formData),
+//   headers: {
+//     'Content-type': 'application/json; charset=UTF-8',
+//   },
+// })
+//   .then((response) => response.json())
+//   .then((json) => console.log(json));
 
+    axios
+    .post("https://jsonplaceholder.typicode.com/posts/", formData)
+      .then((res) => {
+        console.log(res.data);
+      })
+      .catch((err) => console.log(err));
+  };
 
   return (
     <div className=" flex w-screen justify-center">

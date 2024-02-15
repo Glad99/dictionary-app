@@ -7,7 +7,7 @@ import Test from './pages/Test'
 
 function App() {
 return(
-  <div className="">
+  <div className=" w-full overflow-x-hidden">
     <NavBar/>
     <Routes>
       <Route path="/country" element={<Country/>}/>
