@@ -14,7 +14,7 @@ const [error, setError] = useState(null)
       setData(res.hits)
     }).catch(err => setError(err))
   }, [])
-  //useEffect takes in a callback function and dependecies (()=> {},[])..fetch(url).then()converts to json,,res is the respond to request sent..map is always in qurly braces
+  //useEffect takes in a callback function and dependecies (()=> {},[])..fetch(url).then()converts to json,,res is the respond to request sent..map is always in qurly braces..function created inside useEffect can only be use in the useEffect
   return(
     <div className="grid grid-cols-4 gap-5">
       {data.map(item=>(
