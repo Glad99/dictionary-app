@@ -1,8 +1,12 @@
 
-import { useEffect, useState } from 'react';
+import { Route, Routes } from 'react-router-dom'
 import './App.css'
+import NavBar from './components/NavBar'
+import Country from './pages/Country'
+import Test from './pages/Test'
 
 function App() {
+<<<<<<< HEAD
 const [data, setData] = useState([])
 const [error, setError] = useState(null)
 
@@ -33,6 +37,17 @@ const [error, setError] = useState(null)
       ))}
     </div>
   );
+=======
+return(
+  <div className=" w-full overflow-x-hidden">
+    <NavBar/>
+    <Routes>
+      <Route path="/country" element={<Country/>}/>
+      <Route path="/test" element={<Test/>}/>
+    </Routes>
+  </div>
+)
+>>>>>>> ece3e3214bd3f2f7ae36a369c1fef7328672f77c
 }
 
 export default App
