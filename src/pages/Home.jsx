@@ -30,7 +30,7 @@ const Home = () => {
           setSearch(false);
         });
     }
-  }, [search]);
+  }, [input, search]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
