@@ -25,7 +25,7 @@ const Home = () => {
           setSearch(false);
           setLoading(false);
         })
-        .catch((err) => {
+        .catch(() => {
           setLoading(false);
           setSearch(false);
         });
