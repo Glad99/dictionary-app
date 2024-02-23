@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useRef } from "react";
 import { useState } from "react";
 import loader from "../assets/1481.gif";
-import { PiSpeakerSimpleHigh, PiSpeakerSimpleHighFill } from "react-icons/pi";
+import { PiSpeakerSimpleHighFill } from "react-icons/pi";
 import SearchBar from "../components/SearchBar";
 
 const Home = () => {
