@@ -9,7 +9,7 @@ const SearchBar = ({handleChange, onEnter, setSearch}) => {
             onEnter(e);
           }}
           type="text"
-          placeholder="search here"
+          placeholder="Search here"
         />
         <button
           onClick={() => setSearch(true)}
