@@ -25,12 +25,12 @@ const Home = () => {
           setSearch(false);
           setLoading(false);
         })
-        .catch((err) => {
+        .catch(() => {
           setLoading(false);
           setSearch(false);
         });
     }
-  }, [input, search]);
+  }, [search, input]);
 
   const handleChange = (e) => {
     setInput(e.target.value);
